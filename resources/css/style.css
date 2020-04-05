@@ -1,0 +1,36 @@
+.root {
+    -fx-background-image: url("/images/grey_background.jpg");
+    -fx-background-repeat: repeat;
+    -fx-background-size: auto;
+}
+
+.label {
+    -fx-text-fill: grey;
+    -fx-font-family: Calibri;
+    -fx-font-style: italic;
+    -fx-font-size: 72px;
+
+}
+
+.button {
+    -fx-background-color: #9facc2,
+    linear-gradient(#c5cfe0 0%, #1f2429 20%, #9facc2 100%),
+    linear-gradient(#4a7dd4, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(114, 131, 148, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 5, 4, 3, 5;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.9), 1, 0.0, 0, 1);
+    -fx-font-family: Calibri;
+    -fx-font-size: 48px;
+}
+
+.button:hover {
+    -fx-text-fill: #000000;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0), 5, 0.0, 0, 1);
+}
+
+.chart-bar {
+    -fx-background-color: #4a7dd4;
+}
+
+

@@ -1,0 +1,20 @@
+  //languagefiles for now also here
+  val dutch: String = "resources/languagetxtfiles/Alldata Dutch.txt"
+  val danish: String = "resources/languagetxtfiles/Alldata Danish.txt"
+  val finnish: String = "resources/languagetxtfiles/Alldat Finnish.txt"
+  val english: String = "resources/languagetxtfiles/Alldata English.txt"
+  val german: String = "resources/languagetxtfiles/All data German.txt"
+  val portuguese: String = "resources/languagetxtfiles/All data Portuguese.txt"
+  val italian: String = "resources/languagetxtfiles/All data Italian.txt"
+  val spanish: String = "resources/languagetxtfiles/All data Spanish.txt"
+
+
+  //alpabets: for now also here
+  val alphabetdutch: String = "abcdefghijklmnopqrstuvwxyz"
+  val alphabetdanish: String = "abcdefghijklmnopqrstuvwxyzæåø"
+  val alphabetfinnish: String = "abcdefghijklmnopqrstuvwxyzäö"
+  val alphabetenglish: String = "abcdefghijklmnopqrstuvwxyz"
+  val alphabetgerman: String = "abcdefghijklmnopqrstuvwxyzäöüß"
+  val alphabetportuguese: String = "abcdefghijklmnopqrstuvwxyz"
+  val alphabetitalian: String = "abcdefghilmnopqrstuvz"
+  val alphabetspanish: String = "abcdefghijklmnñopqrstuvwxyz"
