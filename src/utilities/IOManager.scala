@@ -29,5 +29,4 @@ class IOManager
   {
     Source.fromFile(language).filter(!_.equals('?')).filter(!_.equals('!')).filter(!_.equals('.')).filter(!_.equals(' ')).filter(!_.equals(',')).toString()
   }
-
 }

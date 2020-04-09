@@ -47,13 +47,25 @@ class AnalyserModel
   //voor elke letter van het alfabet van de taal in kwestie de frequentie over de hele taal
   def getTotalFrequencyOfEveryLetter(language: String, char: String): List[Number] =
   {
-    ioMgr.getLetters(language).foreach(println(_))
+    //    ioMgr.getLetters(language).foreach(println(_))
     val localList = new ListBuffer[Number]
     for (i <- 0 until char.length)
     {
       localList += ioMgr.getLetters(language).count(_.equals(char(i)))
     }
     localList.toList
+  }
+
+  def getTotalFrequencyOfEveryLetterInListOfTuples(language: String, char: String): List[(Char, Int)] =
+  {
+    ioMgr.getLetters(language).foreach(println(_))
+    var locallist: List[(Char, Int)] = List()
+    char.foreach(letter =>
+    {
+      locallist = locallist :+ ((letter, ioMgr.getLetters(language).count(_.equals(letter))))
+    })
+
+    locallist
   }
 
   //Voor de vowels en de consonants de frequentie over de hele taal, als groep dan. Er komen bvb 30 % vowels en 70 % consonants voor in een taal

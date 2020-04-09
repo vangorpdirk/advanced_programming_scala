@@ -59,6 +59,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
 
   def setTotalFrequency(languageString: String): Unit =
   {
+    //hier kan je dan de tweede functie met de tuple gebruiken. Voor elke
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(setAlphabet(languageString), analyserModel.getTotalFrequencyOfEveryLetter(setLanguage(languageString), setAlphabet(languageString))))
     analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
   }
