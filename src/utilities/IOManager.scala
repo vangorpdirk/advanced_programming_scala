@@ -25,8 +25,8 @@ class IOManager
   }
 
   //filter alleen de letters
-  def getLetters(language: String): String =
+  def getLetters(language: String): Iterator[Char] =
   {
-    Source.fromFile(language).filter(!_.equals('?')).filter(!_.equals('!')).filter(!_.equals('.')).filter(!_.equals(' ')).filter(!_.equals(',')).toString()
+    Source.fromFile(language).filter(!_.equals('?')).filter(!_.equals('!')).filter(!_.equals('.')).filter(!_.equals(' ')).filter(!_.equals(','))
   }
 }

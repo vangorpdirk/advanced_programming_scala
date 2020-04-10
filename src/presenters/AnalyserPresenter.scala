@@ -7,12 +7,10 @@ import views.{AnalyserView, MainMenuView}
 
 /**
  * TODO: De methodes setLanguage en setAlphabet kunnen in principe verhuizen naar utilities.
- *
- * @param analyserView
  */
 class AnalyserPresenter(analyserView: AnalyserView)
 {
-  val logger: Logger = Logger.getLogger(getClass().getName)
+  val logger: Logger = Logger.getLogger(getClass.getName)
   val analyserModel = new AnalyserModel()
 
   //addChart
@@ -59,8 +57,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
 
   def setTotalFrequency(languageString: String): Unit =
   {
-    //hier kan je dan de tweede functie met de tuple gebruiken. Voor elke
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(setAlphabet(languageString), analyserModel.getTotalFrequencyOfEveryLetter(setLanguage(languageString), setAlphabet(languageString))))
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuples(analyserModel.getTotalFrequencyOfEveryLetterInListOfTuples(setLanguage(languageString), setAlphabet(languageString))))
     analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
   }
 

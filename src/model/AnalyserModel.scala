@@ -18,7 +18,7 @@ import scala.util.matching.Regex
 
 class AnalyserModel
 {
-  val logger: Logger = Logger.getLogger(getClass().getName)
+  val logger: Logger = Logger.getLogger(getClass.getName)
   val wordPattern: Regex = "[a-zA-Z]+".r
   val ioMgr: IOManager = new IOManager()
 
@@ -58,13 +58,12 @@ class AnalyserModel
 
   def getTotalFrequencyOfEveryLetterInListOfTuples(language: String, char: String): List[(Char, Int)] =
   {
-    ioMgr.getLetters(language).foreach(println(_))
     var locallist: List[(Char, Int)] = List()
     char.foreach(letter =>
     {
       locallist = locallist :+ ((letter, ioMgr.getLetters(language).count(_.equals(letter))))
     })
-
+    logger.info(locallist.toString())
     locallist
   }
 
