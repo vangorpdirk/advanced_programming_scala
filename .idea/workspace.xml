@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="666f3c91-fe2f-47a7-9799-8b70344035f2" name="Default Changelist" comment="904_update_1">
+    <list default="true" id="666f3c91-fe2f-47a7-9799-8b70344035f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AnalyserModel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AnalyserModel.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/presenters/AnalyserPresenter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenters/AnalyserPresenter.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/IOManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/IOManager.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/charts/ChartView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/charts/ChartView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/model/AnalyserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/model/AnalyserModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/presenters/AnalyserPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/presenters/AnalyserPresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/utilities/IOManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/utilities/IOManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/views/charts/ChartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/views/charts/ChartView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <workItem from="1586067509606" duration="12311000" />
       <workItem from="1586109577035" duration="5494000" />
       <workItem from="1586452517970" duration="2948000" />
-      <workItem from="1586542281916" duration="3304000" />
+      <workItem from="1586542281916" duration="3505000" />
     </task>
     <task id="LOCAL-00001" summary="904_update_1">
       <created>1586461288376</created>
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586461288376</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1004_update_1">
+      <created>1586545840735</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586545840735</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,9 +122,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="904_update_1" />
-    <option name="LAST_COMMIT_MESSAGE" value="904_update_1" />
+    <MESSAGE value="1004_update_1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1004_update_1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1368" y="179" key="#Notifications" timestamp="1586545899520">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1368" y="179" key="#Notifications/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586545899520" />
     <state x="-1230" y="276" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1586543329321">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -135,10 +147,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1280" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586543127033" />
-    <state x="-1567" y="10" key="CommitChangelistDialog2" timestamp="1586545747764">
+    <state x="-1567" y="10" key="CommitChangelistDialog2" timestamp="1586545839536">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1567" y="10" key="CommitChangelistDialog2/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586545747764" />
+    <state x="-1567" y="10" key="CommitChangelistDialog2/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586545839536" />
     <state x="282" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586461285224" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1586461240168">
       <screen x="0" y="0" width="1536" height="824" />
@@ -189,10 +201,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586544018716" />
-    <state x="-1469" y="184" key="Vcs.Push.Dialog.v2" timestamp="1586542465847">
+    <state x="-1469" y="184" key="Vcs.Push.Dialog.v2" timestamp="1586545893795">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1469" y="184" key="Vcs.Push.Dialog.v2/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586542465847" />
+    <state x="-1469" y="184" key="Vcs.Push.Dialog.v2/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586545893795" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586461347138" />
     <state x="-1264" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1586452518063">
       <screen x="-1920" y="0" width="1920" height="1040" />
