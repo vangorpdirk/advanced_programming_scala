@@ -5,7 +5,9 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1104_update_1: starting bigram-tests
+ * log 1104_update_2:
+ *  -> how implement bigrams?
+ *  -> check other implementations
  */
 
 object Main
