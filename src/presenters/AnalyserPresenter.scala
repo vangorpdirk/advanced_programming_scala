@@ -25,22 +25,8 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "1" => setWordsStartingWith(analyserView.languageString); b.setDisable(true);
       case "2" => setWordsEndingWith(analyserView.languageString); b.setDisable(true);
       case "3" => setTotalFrequency(analyserView.languageString); b.setDisable(true);
+      case "4" => setVowelChart(analyserView.languageString); b.setDisable(true);
     }
-
-
-
-    //    if (b.getText.equals("3"))
-    //    {
-    //      analyserView.add(setChartThree(analyserView.languageString), 4, 1)
-    //      b.setDisable(true)
-    //    }
-    //    if (b.getText.equals("4"))
-    //    {
-    //      logger.info("Not implemented yet, needs work")
-    //      //      analyserView.add(setPieChart(analyserView.languageString),4,1)
-    //      b.setDisable(true)
-    //    }
-
   }))
 
   def setWordsStartingWith(languageString: String): Unit =
@@ -58,6 +44,12 @@ class AnalyserPresenter(analyserView: AnalyserView)
   def setTotalFrequency(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuples(analyserModel.getTotalFrequencyOfEveryLetterInListOfTuples(setLanguage(languageString), setAlphabet(languageString))))
+    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+  }
+
+  def setVowelChart(languageString: String): Unit =
+  {
+    analyserView.graphicBox.getChildren.add(new ChartView().setPieChart(analyserModel.getFrequencyVowelsInDouble(setLanguage(languageString), setVowels(languageString))))
     analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
   }
 
@@ -91,7 +83,6 @@ class AnalyserPresenter(analyserView: AnalyserView)
   def setAlphabet(languageString: String): String =
   {
     val alphabet = "alphabet" + languageString
-    logger.info(alphabet)
 
     alphabet match
     {
@@ -107,7 +98,20 @@ class AnalyserPresenter(analyserView: AnalyserView)
   }
 
   //vowels
-  //  val vowelsDutch: String = "aeuio"
-  //  val consonantsDutch: String = "bcdfghjklmnpqrstvwxyz"
+  def setVowels(languageString: String): String =
+  {
+    val alphabet = "alphabet" + languageString
 
+    alphabet match
+    {
+      case "alphabetdutch" => "aeuio"
+      case "alphabetdanish" => "aeiouæåø"
+      case "alphabetfinnish" => "aeiouäö"
+      case "alphabetenglish" => "aeiou"
+      case "alphabetgerman" => "aeiouäöü"
+      case "alphabetportuguese" => "aeiou"
+      case "alphabetitalian" => "aeiou"
+      case "alphabetspanish" => "aeiou"
+    }
+  }
 }

@@ -56,24 +56,26 @@ class AnalyserModel
     localList.toList
   }
 
-  def getTotalFrequencyOfEveryLetterInListOfTuples(language: String, char: String): List[(Char, Int)] =
+  def getTotalFrequencyOfEveryLetterInListOfTuples(language: String, char: String): List[(Char, Double)] =
   {
-    var locallist: List[(Char, Int)] = List()
+    var locallist: List[(Char, Double)] = List()
     char.foreach(letter =>
     {
-      locallist = locallist :+ ((letter, ioMgr.getLetters(language).count(_.equals(letter))))
+      val perc = (ioMgr.getLetters(language).count(_.equals(letter)).toDouble / ioMgr.getLetters(language).length.toDouble) * 100
+      locallist = locallist :+ ((letter, perc.ceil))
     })
-    logger.info(locallist.toString())
     locallist
   }
 
   //Voor de vowels en de consonants de frequentie over de hele taal, als groep dan. Er komen bvb 30 % vowels en 70 % consonants voor in een taal
-  //  def getFrequencyVowels(language: String, vowel: Char): Double =
-  //  {
-  //    val percVowel = ioMgr.getLetters(language).count(_.equals(vowel)) / ioMgr.getLetters(language).length
-  ////    val percConsonant = ioMgr.getLetters(language).count(_.equals(vowel)) / ioMgr.getLetters(language).length
-  //
-  //    logger.info("PercVowel: " + percVowel)
-  //    percVowel
-  //  }
+  def getFrequencyVowelsInDouble(language: String, vowel: String): Double =
+  {
+    var perc: Double = 0.0
+    vowel.foreach(vowel =>
+    {
+      perc += ioMgr.getLetters(language).count(_.equals(vowel)).toDouble
+    })
+
+    (perc / ioMgr.getLetters(language).length.toDouble) * 100
+  }
 }

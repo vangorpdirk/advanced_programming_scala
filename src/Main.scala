@@ -5,9 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * Create all views, all presenters
- * set all buttons, backbutton etc
- * integrate model
+ * log 1104_update_1: starting bigram-tests
  */
 
 object Main

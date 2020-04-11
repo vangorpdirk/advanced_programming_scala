@@ -5,10 +5,6 @@ import java.util.logging.Logger
 import javafx.collections.FXCollections
 import javafx.scene.chart.{BarChart, CategoryAxis, NumberAxis, PieChart, XYChart}
 
-/**
- * TODO: Pie Chart implementeren.
- */
-
 class ChartView
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
@@ -37,7 +33,7 @@ class ChartView
     barchart
   }
 
-  def setBarChartWithTuples(alphabetList: List[(Char,Int)]): BarChart[String, Number] =
+  def setBarChartWithTuples(alphabetList: List[(Char, Double)]): BarChart[String, Number] =
   {
     val xAxis = new CategoryAxis
     val yAxis = new NumberAxis()
@@ -50,7 +46,7 @@ class ChartView
 
     val dataseries: XYChart.Series[String, Number] = new XYChart.Series()
 
-    for ((a,b) <- alphabetList)
+    for ((a, b) <- alphabetList)
     {
       dataseries.getData.add(new XYChart.Data(a.toString, b))
     }
@@ -61,13 +57,11 @@ class ChartView
     barchart
   }
 
-
-  def setPieChart(): PieChart =
+  def setPieChart(input: Double): PieChart =
   {
     val pieData = FXCollections.observableArrayList(
-      new PieChart.Data("Dirk", 40),
-      new PieChart.Data("Jos", 30),
-      new PieChart.Data("Lou", 30)
+      new PieChart.Data("Vowels", input),
+      new PieChart.Data("Consonants", 100 - input),
     )
     val pie: PieChart = new PieChart(pieData)
 
