@@ -18,6 +18,22 @@ class NgramManager
     bigramList
   }
 
+  def countBigrams(string: String, bigram: String): Int =
+  {
+    //is empty uitsluiten
+    var count = 0
+    for (i <- 0 until string.length - 1)
+    {
+      val currentBigram = "" + string(i) + string(i + 1)
+      if (currentBigram.contains(bigram))
+      {
+        count = count + 1
+        println(count)
+      }
+    }
+    count
+  }
+
   def toTrigrams(str: String): List[String] =
   {
     var trigramList: List[String] = List()

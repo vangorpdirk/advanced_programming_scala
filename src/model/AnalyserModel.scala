@@ -78,4 +78,14 @@ class AnalyserModel
 
     (perc / ioMgr.getLetters(language).length.toDouble) * 100
   }
+
+  def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
+  {
+    var locallist: List[(String, Int)] = List()
+    bigrams.foreach(bigram =>
+    {
+      locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.startsWith(bigram))))
+    })
+    locallist
+  }
 }

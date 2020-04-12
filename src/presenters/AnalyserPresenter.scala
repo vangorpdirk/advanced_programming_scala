@@ -1,19 +1,22 @@
 package presenters
 
 import java.util.logging.Logger
+
 import model.AnalyserModel
+import utilities.NgramManager
 import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
  * TODO: De methodes setLanguage en setAlphabet kunnen in principe verhuizen naar utilities.
+ * TODO: setPopularStartingBigrams --> get 25 most popular (check second part of tuple)
  */
 class AnalyserPresenter(analyserView: AnalyserView)
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
   val analyserModel = new AnalyserModel()
+  val ngramMgr = new NgramManager()
 
-  //addChart
   analyserView.analyserButtons.foreach(b => b.setOnAction(_ =>
   {
     logger.info(b.getText)
@@ -26,6 +29,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "2" => setWordsEndingWith(analyserView.languageString); b.setDisable(true);
       case "3" => setTotalFrequency(analyserView.languageString); b.setDisable(true);
       case "4" => setVowelChart(analyserView.languageString); b.setDisable(true);
+      case "5" => setPopularStartingBigrams(analyserView.languageString); b.setDisable(true);
     }
   }))
 
@@ -51,6 +55,14 @@ class AnalyserPresenter(analyserView: AnalyserView)
   {
     analyserView.graphicBox.getChildren.add(new ChartView().setPieChart(analyserModel.getFrequencyVowelsInDouble(setLanguage(languageString), setVowels(languageString))))
     analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+  }
+
+  def setPopularStartingBigrams(languageString: String): Unit =
+  {
+    println(analyserModel.getPopularStartingBigrams(setLanguage(languageString),ngramMgr.toBigrams(setAlphabet(languageString))))
+
+//    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(ngramMgr.toBigrams(languageString),))
+//    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
   }
 
   //backbutton
