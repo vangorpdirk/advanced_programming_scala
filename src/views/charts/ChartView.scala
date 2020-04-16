@@ -57,6 +57,30 @@ class ChartView
     barchart
   }
 
+  def setBarChartWithTuplesString(alphabetList: List[(String, Int)]): BarChart[String, Number] =
+  {
+    val xAxis = new CategoryAxis
+    val yAxis = new NumberAxis()
+    val barchart: BarChart[String, Number] = new BarChart[String, Number](xAxis, yAxis)
+    xAxis.setLabel("Letter from alfabet")
+    yAxis.setLabel("Frequency")
+    barchart.setPrefSize(1480, 1000)
+    barchart.setBarGap(0)
+    barchart.setCategoryGap(1.0)
+
+    val dataseries: XYChart.Series[String, Number] = new XYChart.Series()
+
+    for ((a, b) <- alphabetList)
+    {
+      dataseries.getData.add(new XYChart.Data(a.toString, b))
+    }
+
+    barchart.getData.add(dataseries)
+    barchart.setLegendVisible(false)
+
+    barchart
+  }
+
   def setPieChart(input: Double): PieChart =
   {
     val pieData = FXCollections.observableArrayList(

@@ -8,8 +8,8 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: De methodes setLanguage en setAlphabet kunnen in principe verhuizen naar utilities.
- * TODO: setPopularStartingBigrams --> get 25 most popular (check second part of tuple)
+ * TODO: number 7 and 8 --check assignment
+ * TODO: when ready, replace test_dutch with setLanguage(languageString)
  */
 class AnalyserPresenter(analyserView: AnalyserView)
 {
@@ -30,6 +30,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "3" => setTotalFrequency(analyserView.languageString); b.setDisable(true);
       case "4" => setVowelChart(analyserView.languageString); b.setDisable(true);
       case "5" => setPopularStartingBigrams(analyserView.languageString); b.setDisable(true);
+      case "6" => setPopularEndingBigrams(analyserView.languageString); b.setDisable(true);
     }
   }))
 
@@ -59,10 +60,14 @@ class AnalyserPresenter(analyserView: AnalyserView)
 
   def setPopularStartingBigrams(languageString: String): Unit =
   {
-    println(analyserModel.getPopularStartingBigrams(setLanguage(languageString),ngramMgr.toBigrams(setAlphabet(languageString))))
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getPopularStartingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(setAlphabet(languageString)))))
+    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+  }
 
-//    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(ngramMgr.toBigrams(languageString),))
-//    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+  def setPopularEndingBigrams(languageString: String): Unit =
+  {
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getPopularEndingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(setAlphabet(languageString)))))
+    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
   }
 
   //backbutton

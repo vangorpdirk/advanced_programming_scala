@@ -5,10 +5,8 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1204_update_1:
- *  -> how implement bigrams? --> sorting???
+ * log 1604_update_1:
  *  -> check other implementations
- *  -> maybe lookup testtxt
  */
 
 object Main

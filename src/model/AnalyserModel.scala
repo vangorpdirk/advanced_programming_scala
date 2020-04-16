@@ -86,6 +86,18 @@ class AnalyserModel
     {
       locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.startsWith(bigram))))
     })
-    locallist
+
+    locallist.sortWith(_._2 > _._2).take(25)
+  }
+
+  def getPopularEndingBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
+  {
+    var locallist: List[(String, Int)] = List()
+    bigrams.foreach(bigram =>
+    {
+      locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.endsWith(bigram))))
+    })
+
+    locallist.sortWith(_._2 > _._2).take(25)
   }
 }
