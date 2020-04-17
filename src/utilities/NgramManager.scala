@@ -28,7 +28,6 @@ class NgramManager
       if (currentBigram.contains(bigram))
       {
         count = count + 1
-        println(count)
       }
     }
     count
@@ -52,5 +51,20 @@ class NgramManager
       }
     }
     trigramList
+  }
+
+  def countTrigrams(string: String, trigram: String): Int =
+  {
+    //is empty uitsluiten
+    var count = 0
+    for (i <- 0 until string.length - 2)
+    {
+      val currentBigram = "" + string(i) + string(i + 1) + string(i + 2)
+      if (currentBigram.contains(trigram))
+      {
+        count = count + 1
+      }
+    }
+    count
   }
 }

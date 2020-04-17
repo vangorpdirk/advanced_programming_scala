@@ -2,18 +2,13 @@ package model
 
 import java.util.logging.Logger
 
-import utilities.IOManager
+import utilities.{IOManager, NgramManager}
 
 import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
 /**
- * TODO:
- * Hier zit ik met vragen over de IO-utility getLetters. Die is fout opgebouwd, maar kan je me in de juiste richting wijzen?
- * Andere zaken:
- *
- * 1. Closed source?
- * 2. Work with doubles and divide with list.length for percentage.
+ * TODO: Work with doubles and divide with list.length for percentage.
  */
 
 class AnalyserModel
@@ -21,6 +16,7 @@ class AnalyserModel
   val logger: Logger = Logger.getLogger(getClass.getName)
   val wordPattern: Regex = "[a-zA-Z]+".r
   val ioMgr: IOManager = new IOManager()
+  val nGramMgr: NgramManager = new NgramManager()
 
   //voor elke letter van het alfabet van de taal in kwestie het aantal woorden dat er mee begint
   def getStartingLetterResult(language: String, char: String): List[Number] =
@@ -96,6 +92,28 @@ class AnalyserModel
     bigrams.foreach(bigram =>
     {
       locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.endsWith(bigram))))
+    })
+
+    locallist.sortWith(_._2 > _._2).take(25)
+  }
+
+  def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
+  {
+    var locallist: List[(String, Int)] = List()
+    bigrams.foreach(bigram =>
+    {
+      locallist = locallist :+ ((bigram, nGramMgr.countBigrams(ioMgr.getLetters(language).toString(),bigram)))
+    })
+
+    locallist.sortWith(_._2 > _._2).take(25)
+  }
+
+  def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Int)] =
+  {
+    var locallist: List[(String, Int)] = List()
+    trigrams.foreach(trigram =>
+    {
+      locallist = locallist :+ ((trigram, nGramMgr.countTrigrams(ioMgr.getLetters(language).toString(),trigram)))
     })
 
     locallist.sortWith(_._2 > _._2).take(25)

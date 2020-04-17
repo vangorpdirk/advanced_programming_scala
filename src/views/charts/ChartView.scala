@@ -5,6 +5,10 @@ import java.util.logging.Logger
 import javafx.collections.FXCollections
 import javafx.scene.chart.{BarChart, CategoryAxis, NumberAxis, PieChart, XYChart}
 
+/**
+ * TODO: Meaningfull names for buttons
+ */
+
 class ChartView
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
