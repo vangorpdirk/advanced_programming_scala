@@ -8,7 +8,7 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: skipgrams
+ * TODO: skipgrams ???
  * TODO: when ready, replace test_dutch with languageMgr.setLanguage(languageString)
  *
  * TODO: @param analyserView = ????
@@ -28,64 +28,71 @@ class AnalyserPresenter(analyserView: AnalyserView)
 
     buttonChoice match
     {
-      case "starts with" => setWordsStartingWith(analyserView.languageString); b.setDisable(true);
-      case "ends with" => setWordsEndingWith(analyserView.languageString); b.setDisable(true);
-      case "letter frequency" => setTotalFrequency(analyserView.languageString); b.setDisable(true);
-      case "vowels/consonants" => setVowelChart(analyserView.languageString); b.setDisable(true);
-      case "starting bigrams" => setPopularStartingBigrams(analyserView.languageString); b.setDisable(true);
-      case "ending bigrams" => setPopularEndingBigrams(analyserView.languageString); b.setDisable(true);
-      case "popular bigrams" => setMostPopularBigrams(analyserView.languageString); b.setDisable(true);
-      case "popular trigrams" => setMostPopularTrigrams(analyserView.languageString); b.setDisable(true);
+      case "starts with" => setWordsStartingWith(analyserView.languageString);
+      case "ends with" => setWordsEndingWith(analyserView.languageString);
+      case "letter frequency" => setTotalFrequency(analyserView.languageString);
+      case "vowels/consonants" => setVowelChart(analyserView.languageString);
+      case "starting bigrams" => setPopularStartingBigrams(analyserView.languageString);
+      case "ending bigrams" => setPopularEndingBigrams(analyserView.languageString);
+      case "popular bigrams" => setMostPopularBigrams(analyserView.languageString);
+      case "popular trigrams" => setMostPopularTrigrams(analyserView.languageString);
+//      case "popular skipgrams" => "whoopsie, not implemented yet"
     }
   }))
 
   def setWordsStartingWith(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(languageMgr.setAlphabet(languageString), analyserModel.getStartingLetterResult(languageMgr.setLanguage(languageString), languageMgr.setAlphabet(languageString))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(analyserModel.getStartingLetterResult("resources/languagetxtfiles/test_dutch.txt", languageMgr.setAlphabet(languageString))))
   }
 
   def setWordsEndingWith(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(languageMgr.setAlphabet(languageString), analyserModel.getEndingWithLetterResult(languageMgr.setLanguage(languageString), languageMgr.setAlphabet(languageString))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(analyserModel.getEndingWithLetterResult("resources/languagetxtfiles/test_dutch.txt", languageMgr.setAlphabet(languageString))))
   }
 
   def setTotalFrequency(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuples(analyserModel.getTotalFrequencyOfEveryLetterInListOfTuples(languageMgr.setLanguage(languageString), languageMgr.setAlphabet(languageString))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(analyserModel.getTotalFrequencyOfEveryLetter("resources/languagetxtfiles/test_dutch.txt", languageMgr.setAlphabet(languageString))))
   }
 
   def setVowelChart(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setPieChart(analyserModel.getFrequencyVowelsInDouble(languageMgr.setLanguage(languageString), languageMgr.setVowels(languageString))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setPieChart(analyserModel.getFrequencyVowelsInDouble("resources/languagetxtfiles/test_dutch.txt", languageMgr.setVowels(languageString))))
   }
 
   def setPopularStartingBigrams(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getPopularStartingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(analyserModel.getPopularStartingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
   }
 
   def setPopularEndingBigrams(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getPopularEndingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(analyserModel.getPopularEndingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
   }
 
   def setMostPopularBigrams(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithInt(analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
   }
 
   def setMostPopularTrigrams(languageString: String): Unit =
   {
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularTrigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toTrigrams(languageMgr.setAlphabet(languageString)))))
-    analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+    analyserView.graphicBox.getChildren.clear()
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithInt(analyserModel.getMostPopularTrigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toTrigrams(languageMgr.setAlphabet(languageString)))))
   }
+
+//    def setMostPopularSkipgrams(languageString: String): Unit =
+//    {
+//      analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipGrams(languageMgr.setAlphabet(languageString)))))
+//      analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+//    }
 
   //backbutton
   analyserView.backButton.setOnAction(_ =>

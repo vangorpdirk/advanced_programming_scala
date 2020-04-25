@@ -45,8 +45,8 @@ class NgramManager
           val x1 = str.charAt(i)
           val x2 = str.charAt(j)
           val x3 = str.charAt(k)
-          val bigram = "" + x1 + x2 + x3
-          trigramList = trigramList :+ bigram
+          val trigram = "" + x1 + x2 + x3
+          trigramList = trigramList :+ trigram
         }
       }
     }
@@ -67,4 +67,22 @@ class NgramManager
     }
     count
   }
+
+
+//  def toSkipGrams(str: String): List[String] =
+//  {
+//    var skipGramList: List[String] = List()
+//    for (i <- 0 until str.length)
+//    {
+//      for (k <- 0 until str.length)
+//      {
+//        val x1 = str.charAt(i)
+//        val x2 = str.matches(".")
+//        val x3 = str.charAt(k)
+//        val skipgram = "" + x1 + x2 + x3
+//        skipGramList = skipGramList :+ skipgram
+//      }
+//    }
+//    skipGramList
+//  }
 }

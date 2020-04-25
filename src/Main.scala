@@ -5,8 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1604_update_1:
- *  -> check other implementations
+ * log 2504_update:
  */
 
 object Main

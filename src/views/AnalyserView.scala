@@ -14,7 +14,7 @@ class AnalyserView(language: String) extends GridPane
   val analyserButtons: List[Button] = List(new Button("Starts with"), new Button("Ends With"), new Button("Letter Frequency"),
     new Button("Vowels/Consonants"), new Button("Starting Bigrams"), new Button("Ending Bigrams"),
     new Button("Popular Bigrams"), new Button("Popular Trigrams"), new Button("Popular Skipgrams")
-  , new Button("10"))
+    , new Button("10"))
   val leftBox: VBox = new VBox(10)
   val graphicBox: HBox = new HBox(10)
 
@@ -29,7 +29,10 @@ class AnalyserView(language: String) extends GridPane
     leftBox.getChildren.add(backButton)
     analyserButtons.foreach(leftBox.getChildren.add(_))
     leftBox.setAlignment(Pos.CENTER)
+
+    //add boxes
     add(leftBox, 0, 0, 1, 10)
+    add(graphicBox, 1, 0, 1, 10)
 
     setVgap(10)
     setHgap(10)
