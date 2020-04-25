@@ -8,7 +8,6 @@ import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
 /**
- * TODO: Work with doubles and divide with list.length for percentage.
  * TODO: Skipgrams, zie ook NgramManager - nog niet opgelost
  */
 
@@ -24,8 +23,8 @@ class AnalyserModel
     var locallist: List[(Char, Double)] = List()
     for (i <- 0 until char.length)
     {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100
-      locallist = locallist :+ ((char(i), perc.ceil))
+      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length) * 1000
+      locallist = locallist :+ ((char(i), perc))
     }
     locallist
   }
@@ -35,8 +34,8 @@ class AnalyserModel
     var locallist: List[(Char, Double)] = List()
     for (i <- 0 until char.length)
     {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100
-      locallist = locallist :+ ((char(i), perc.ceil))
+      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
+      locallist = locallist :+ ((char(i), perc))
     }
     locallist
   }
@@ -46,8 +45,8 @@ class AnalyserModel
     var locallist: List[(Char, Double)] = List()
     char.foreach(letter =>
     {
-      val perc = (ioMgr.getLetters(language).count(_.equals(letter)).toDouble / ioMgr.getLetters(language).length.toDouble) * 100
-      locallist = locallist :+ ((letter, perc.ceil))
+      val perc = (ioMgr.getLetters(language).count(_.equals(letter)).toDouble / ioMgr.getLetters(language).length.toDouble) * 1000
+      locallist = locallist :+ ((letter, perc))
     })
     locallist
   }
@@ -60,7 +59,7 @@ class AnalyserModel
       perc += ioMgr.getLetters(language).count(_.equals(vowel)).toDouble
     })
 
-    (perc / ioMgr.getLetters(language).length.toDouble) * 100
+    (perc / ioMgr.getLetters(language).length.toDouble) * 1000
   }
 
   def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
@@ -68,8 +67,8 @@ class AnalyserModel
     var locallist: List[(String, Double)] = List()
     bigrams.foreach(bigram =>
     {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100
-      locallist = locallist :+ ((bigram, perc.ceil))
+      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
+      locallist = locallist :+ ((bigram, perc))
     })
 
     locallist.sortWith(_._2 > _._2).take(25)
@@ -80,8 +79,8 @@ class AnalyserModel
     var locallist: List[(String, Double)] = List()
     bigrams.foreach(bigram =>
     {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100
-      locallist = locallist :+ ((bigram, perc.ceil))
+      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
+      locallist = locallist :+ ((bigram, perc))
     })
 
     locallist.sortWith(_._2 > _._2).take(25)
