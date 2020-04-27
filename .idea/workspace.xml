@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="666f3c91-fe2f-47a7-9799-8b70344035f2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/model/AnalyserModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/model/AnalyserModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NgramAnalyser/views/charts/ChartView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NgramAnalyser/views/charts/ChartView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AnalyserModel.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AnalyserModel.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/presenters/AnalyserPresenter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/presenters/AnalyserPresenter.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/NgramManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/NgramManager.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/AnalyserView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AnalyserView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainMenuView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuView.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/charts/ChartView.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/charts/ChartView.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +111,7 @@
       <workItem from="1587752033714" duration="3660000" />
       <workItem from="1587821618927" duration="7795000" />
       <workItem from="1587831148317" duration="2071000" />
+      <workItem from="1588010864093" duration="501000" />
     </task>
     <task id="LOCAL-00001" summary="904_update_1">
       <created>1586461288376</created>
@@ -233,10 +236,10 @@
     </state>
     <state x="-1469" y="184" key="Vcs.Push.Dialog.v2/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586545893795" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586461347138" />
-    <state x="-1264" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1587831148081">
+    <state x="-1264" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1588010872063">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1264" y="345" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1587831148081" />
+    <state x="-1264" y="345" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-3840.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1588010872063" />
     <state x="525" y="273" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586790945474" />
     <state x="-1301" y="189" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587667919599">
       <screen x="-1920" y="0" width="1920" height="1040" />

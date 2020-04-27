@@ -4,7 +4,6 @@ import java.util.logging.Logger
 
 import javafx.geometry.{Insets, Pos}
 import javafx.scene.control.{Button, Label}
-import javafx.scene.effect.Reflection
 import javafx.scene.layout.{GridPane, HBox, VBox}
 
 class MainMenuView extends GridPane

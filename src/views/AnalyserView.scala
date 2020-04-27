@@ -6,6 +6,12 @@ import javafx.geometry.{Insets, Pos}
 import javafx.scene.control.Button
 import javafx.scene.layout.{GridPane, HBox, VBox}
 
+/**
+ * TODO:(niet voor Herwig) button 10 -> needs label
+ *
+ * @param language
+ */
+
 class AnalyserView(language: String) extends GridPane
 {
   val logger: Logger = Logger.getLogger(getClass.getName)

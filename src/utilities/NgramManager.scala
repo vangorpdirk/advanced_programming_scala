@@ -1,5 +1,9 @@
 package utilities
 
+/**
+ * TODO: setSkipgrams???
+ */
+
 class NgramManager
 {
   def toBigrams(str: String): List[String] =

@@ -9,7 +9,6 @@ import views.{AnalyserView, MainMenuView}
 
 /**
  * TODO: skipgrams ???
- * TODO: @param analyserView = ????
  *
  * TODO: (GEEN VRAAG VOOR HERWIG) when ready, replace test_dutch with actual languageMgr.setLanguage(languageString)
  */
