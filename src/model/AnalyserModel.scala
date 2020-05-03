@@ -21,9 +21,10 @@ class AnalyserModel
   def getStartingLetterResult(language: String, char: String): List[(Char, Double)] =
   {
     var locallist: List[(Char, Double)] = List()
+    val wordslist = ioMgr.getWordsFromFile(language)
     for (i <- 0 until char.length)
     {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length) * 1000
+      val perc = (wordslist.count(_.startsWith(char(i).toString)).toDouble / wordslist.length) * 1000
       locallist = locallist :+ ((char(i), perc))
     }
     locallist

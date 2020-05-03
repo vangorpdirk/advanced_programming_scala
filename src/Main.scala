@@ -5,7 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 2704_update:
+ * log 305_update: check mail herwig --> sortButton + countBigrams + languagebuttons
  */
 
 object Main

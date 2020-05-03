@@ -9,7 +9,6 @@
     -fx-font-family: Calibri;
     -fx-font-style: italic;
     -fx-font-size: 32px;
-
 }
 
 .button {
@@ -33,4 +32,9 @@
     -fx-background-color: #4a7dd4;
 }
 
+.axis-label {
+    -fx-text-fill: white;
+    -fx-font-family: Calibri;
+    -fx-font-size: 32px;
+}
 
