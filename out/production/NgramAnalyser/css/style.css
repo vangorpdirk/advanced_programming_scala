@@ -29,14 +29,16 @@
 }
 
 .chart-bar {
-    -fx-background-color: #4a7dd4;
+    -fx-background-color: rgb(173, 0, 150);
+}
+
+.chart-plot-background {
+    -fx-background-color:rgba(217, 245, 255, 0.9);
 }
 
 .axis-label {
     -fx-text-fill: white;
     -fx-font-family: Calibri;
     -fx-font-size: 32px;
-    -fx-font-border: 1px black solid;
-    -fx-border-radius: 10%;
 }
 

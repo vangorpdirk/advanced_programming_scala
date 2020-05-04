@@ -6,6 +6,8 @@ import views.MainMenuView
 
 /**
  * log 305_update: check mail herwig --> sortButton + countBigrams + languagebuttons
+ *
+ * TODO: implement horizontal buttons + check grid + working with vectors...
  */
 
 object Main

@@ -20,7 +20,7 @@ class ChartView
   {
     xAxis.setLabel("nGram")
     yAxis.setLabel("Frequency")
-    barchart.setPrefSize(1480, 1000)
+    barchart.setPrefSize(1500, 2500)
     barchart.setBarGap(0)
     barchart.setCategoryGap(1.0)
 
@@ -41,7 +41,7 @@ class ChartView
   {
     xAxis.setLabel("nGram")
     yAxis.setLabel("Frequency")
-    barchart.setPrefSize(1480, 1000)
+    barchart.setPrefSize(1500, 2500)
     barchart.setBarGap(0)
     barchart.setCategoryGap(1.0)
 
@@ -62,7 +62,7 @@ class ChartView
   {
     xAxis.setLabel("nGram")
     yAxis.setLabel("Frequency")
-    barchart.setPrefSize(1480, 1000)
+    barchart.setPrefSize(1500, 2500)
     barchart.setBarGap(0)
     barchart.setCategoryGap(1.0)
 

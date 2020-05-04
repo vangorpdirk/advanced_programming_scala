@@ -35,9 +35,19 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "ending bigrams" => setPopularEndingBigrams(analyserView.languageString);
       case "popular bigrams" => setMostPopularBigrams(analyserView.languageString);
       case "popular trigrams" => setMostPopularTrigrams(analyserView.languageString);
-//      case "popular skipgrams" => "whoopsie, not implemented yet"
+      //      case "popular skipgrams" => "whoopsie, not implemented yet"
     }
   }))
+
+//  analyserView.languageButtons.foreach(b => b.setOnAction(_ =>
+//  {
+//    val anotherButtonChoice = b.getText.toLowerCase
+//
+//    anotherButtonChoice match
+//    {
+//      case "sort" =>
+//    }
+//  }))
 
   def setWordsStartingWith(languageString: String): Unit =
   {
@@ -87,11 +97,11 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithInt(analyserModel.getMostPopularTrigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toTrigrams(languageMgr.setAlphabet(languageString)))))
   }
 
-//    def setMostPopularSkipgrams(languageString: String): Unit =
-//    {
-//      analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipGrams(languageMgr.setAlphabet(languageString)))))
-//      analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
-//    }
+  //    def setMostPopularSkipgrams(languageString: String): Unit =
+  //    {
+  //      analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipGrams(languageMgr.setAlphabet(languageString)))))
+  //      analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
+  //    }
 
   //backbutton
   analyserView.backButton.setOnAction(_ =>

@@ -4,6 +4,8 @@ import java.util.logging.Logger
 
 import utilities.{IOManager, NgramManager}
 
+import scala.collection.immutable.HashSet
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
@@ -63,7 +65,7 @@ class AnalyserModel
     (perc / ioMgr.getLetters(language).length.toDouble) * 1000
   }
 
-  def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
+  def getPopularStartingBigrams(language: String, bigrams: HashSet[String]): List[(String, Double)] =
   {
     var locallist: List[(String, Double)] = List()
     bigrams.foreach(bigram =>
@@ -75,7 +77,7 @@ class AnalyserModel
     locallist.sortWith(_._2 > _._2).take(25)
   }
 
-  def getPopularEndingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
+  def getPopularEndingBigrams(language: String, bigrams: HashSet[String]): List[(String, Double)] =
   {
     var locallist: List[(String, Double)] = List()
     bigrams.foreach(bigram =>
@@ -87,12 +89,13 @@ class AnalyserModel
     locallist.sortWith(_._2 > _._2).take(25)
   }
 
-  def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
+  def getMostPopularBigrams(language: String, bigrams: HashSet[String]): List[(String, Int)] =
   {
     var locallist: List[(String, Int)] = List()
     bigrams.foreach(bigram =>
     {
-      locallist = locallist :+ ((bigram, nGramMgr.countBigrams(ioMgr.getLetters(language).toString(), bigram)))
+      locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram))))
+//      locallist = locallist :+ ((bigram, nGramMgr.countBigrams(ioMgr.getLetters(language).toString(), bigram)))
     })
 
     locallist.sortWith(_._2 > _._2).take(25)
@@ -103,7 +106,8 @@ class AnalyserModel
     var locallist: List[(String, Int)] = List()
     trigrams.foreach(trigram =>
     {
-      locallist = locallist :+ ((trigram, nGramMgr.countTrigrams(ioMgr.getLetters(language).toString(), trigram)))
+      locallist = locallist :+ ((trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram))))
+//      locallist = locallist :+ ((trigram, nGramMgr.countTrigrams(ioMgr.getLetters(language).toString(), trigram)))
     })
 
     locallist.sortWith(_._2 > _._2).take(25)
