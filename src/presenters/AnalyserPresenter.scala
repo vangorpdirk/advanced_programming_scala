@@ -39,15 +39,15 @@ class AnalyserPresenter(analyserView: AnalyserView)
     }
   }))
 
-//  analyserView.languageButtons.foreach(b => b.setOnAction(_ =>
-//  {
-//    val anotherButtonChoice = b.getText.toLowerCase
-//
-//    anotherButtonChoice match
-//    {
-//      case "sort" =>
-//    }
-//  }))
+  //  analyserView.languageButtons.foreach(b => b.setOnAction(_ =>
+  //  {
+  //    val anotherButtonChoice = b.getText.toLowerCase
+  //
+  //    anotherButtonChoice match
+  //    {
+  //      case "sort" =>
+  //    }
+  //  }))
 
   def setWordsStartingWith(languageString: String): Unit =
   {
@@ -76,19 +76,22 @@ class AnalyserPresenter(analyserView: AnalyserView)
   def setPopularStartingBigrams(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(analyserModel.getPopularStartingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(analyserModel.getPopularStartingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
   }
 
   def setPopularEndingBigrams(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(analyserModel.getPopularEndingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
+    analyserView
+      .graphicBox
+      .getChildren
+      .add(new ChartView().setBarChartWithString(analyserModel.getPopularEndingBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
   }
 
   def setMostPopularBigrams(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
-    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithInt(analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)))))
+    analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithInt(analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
   }
 
   def setMostPopularTrigrams(languageString: String): Unit =
