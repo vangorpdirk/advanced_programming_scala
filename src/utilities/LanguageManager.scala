@@ -30,7 +30,7 @@ class LanguageManager
       case "alphabetfinnish" => "abcdefghijklmnopqrstuvwxyzäö"
       case "alphabetenglish" => "abcdefghijklmnopqrstuvwxyz"
       case "alphabetgerman" => "abcdefghijklmnopqrstuvwxyzäöüß"
-      case "alphabetportuguese" => "abcdefghijklmnopqrstuvwxyz"
+      case "alphabetportugese" => "abcdefghijklmnopqrstuvwxyz"
       case "alphabetitalian" => "abcdefghilmnopqrstuvz"
       case "alphabetspanish" => "abcdefghijklmnñopqrstuvwxyz"
     }

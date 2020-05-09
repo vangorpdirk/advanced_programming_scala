@@ -1,12 +1,7 @@
 package model
 
 import java.util.logging.Logger
-
 import utilities.{IOManager, NgramManager}
-
-import scala.collection.immutable.HashSet
-import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
 /**
@@ -20,38 +15,28 @@ class AnalyserModel
   val ioMgr: IOManager = new IOManager()
   val nGramMgr: NgramManager = new NgramManager()
 
-  def getStartingLetterResult(language: String, char: String): List[(Char, Double)] =
+  def getStartingLetterResult(language: String, char: String): IndexedSeq[(Char, Double)] =
   {
-    var locallist: List[(Char, Double)] = List()
-    val wordslist = ioMgr.getWordsFromFile(language)
-    for (i <- 0 until char.length)
-    {
-      val perc = (wordslist.count(_.startsWith(char(i).toString)).toDouble / wordslist.length) * 1000
-      locallist = locallist :+ ((char(i), perc))
-    }
-    locallist
+    for (c <- char) yield
+      {
+        (c, ioMgr.getWordsFromFile(language).count(_.startsWith(c.toString)).toDouble)
+      }
   }
 
-  def getEndingWithLetterResult(language: String, char: String): List[(Char, Double)] =
+  def getEndingWithLetterResult(language: String, char: String): IndexedSeq[(Char, Double)] =
   {
-    var locallist: List[(Char, Double)] = List()
-    for (i <- 0 until char.length)
-    {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(char(i).toString)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
-      locallist = locallist :+ ((char(i), perc))
-    }
-    locallist
+    for (c <- char) yield
+      {
+        (c, ioMgr.getWordsFromFile(language).count(_.endsWith(c.toString)).toDouble)
+      }
   }
 
-  def getTotalFrequencyOfEveryLetter(language: String, char: String): List[(Char, Double)] =
+  def getTotalFrequencyOfEveryLetter(language: String, char: String): IndexedSeq[(Char, Double)] =
   {
-    var locallist: List[(Char, Double)] = List()
-    char.foreach(letter =>
-    {
-      val perc = (ioMgr.getLetters(language).count(_.equals(letter)).toDouble / ioMgr.getLetters(language).length.toDouble) * 1000
-      locallist = locallist :+ ((letter, perc))
-    })
-    locallist
+    for (c <- char) yield
+      {
+        (c, ioMgr.getLetters(language).count(_.equals(c)).toDouble)
+      }
   }
 
   def getFrequencyVowelsInDouble(language: String, vowel: String): Double =
@@ -67,50 +52,34 @@ class AnalyserModel
 
   def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
-    var locallist: List[(String, Double)] = List()
-    bigrams.foreach(bigram =>
-    {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
-      locallist = locallist :+ ((bigram, perc))
-    })
-
-    locallist.sortWith(_._2 > _._2).take(25)
+    for (bigram <- bigrams) yield
+      {
+        (bigram, (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000)
+      }
   }
 
   def getPopularEndingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
-    var locallist: List[(String, Double)] = List()
-    bigrams.foreach(bigram =>
-    {
-      val perc = (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000
-      locallist = locallist :+ ((bigram, perc))
-    })
-
-    locallist.sortWith(_._2 > _._2).take(25)
+    for (bigram <- bigrams) yield
+      {
+        (bigram, (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000)
+      }
   }
 
   def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
   {
-    var locallist: List[(String, Int)] = List()
-    bigrams.foreach(bigram =>
-    {
-      locallist = locallist :+ ((bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram))))
-//      locallist = locallist :+ ((bigram, nGramMgr.countBigrams(ioMgr.getLetters(language).toString(), bigram)))
-    })
-
-    locallist.sortWith(_._2 > _._2).take(25)
+    for (bigram <- bigrams) yield
+      {
+        (bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram)))
+      }
   }
 
   def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Int)] =
   {
-    var locallist: List[(String, Int)] = List()
-    trigrams.foreach(trigram =>
-    {
-      locallist = locallist :+ ((trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram))))
-//      locallist = locallist :+ ((trigram, nGramMgr.countTrigrams(ioMgr.getLetters(language).toString(), trigram)))
-    })
-
-    locallist.sortWith(_._2 > _._2).take(25)
+    for (trigram <- trigrams) yield
+      {
+        (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)))
+      }
   }
 
   //  def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Int)] =

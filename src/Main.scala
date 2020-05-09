@@ -5,9 +5,10 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 505_update: check mail herwig --> sortButton + countBigrams + languagebuttons
+ * log 905_update: check mail herwig --> sortButton + maybe change setup and use function as parameter
  *
- * TODO: implement horizontal buttons + check grid
+ * TODO: check grid
+ * TODO: sortButton + maybe change setup and use function as parameter
  */
 
 object Main
