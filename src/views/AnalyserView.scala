@@ -7,8 +7,6 @@ import javafx.scene.control.Button
 import javafx.scene.layout.{GridPane, HBox, VBox}
 
 /**
- * TODO:(niet voor Herwig) button 10 -> needs label
- *
  * @param language
  */
 
@@ -20,10 +18,11 @@ class AnalyserView(language: String) extends GridPane
   val analyserButtons: List[Button] = List(new Button("Starts with"), new Button("Ends With"), new Button("Letter Frequency"),
     new Button("Vowels/Consonants"), new Button("Starting Bigrams"), new Button("Ending Bigrams"),
     new Button("Popular Bigrams"), new Button("Popular Trigrams"), new Button("Popular Skipgrams")
-    , new Button("10"))
+    , new Button("SkipVsBigram"))
   val languageButtons: List[Button] = List(new Button("Dutch"), new Button("English"),
     new Button("Finnish"), new Button("German"), new Button("Italian"),
-    new Button("Danish"), new Button("Portugese"), new Button("Spanish"), new Button("SORT"))
+    new Button("Danish"), new Button("Portugese"), new Button("Spanish"))
+  val sortButton = new Button("SORT")
   val leftBox: VBox = new VBox(10)
   val topBox: HBox = new HBox(10)
   val graphicBox: HBox = new HBox(10)
@@ -32,6 +31,8 @@ class AnalyserView(language: String) extends GridPane
   {
     backButton.setPrefSize(350, 75)
     analyserButtons.foreach(_.setPrefSize(350, 75))
+    languageButtons.foreach(_.setId("languagebutton"))
+    sortButton.setId("sortbutton")
   }
 
   def setPage(): Unit =
@@ -39,6 +40,7 @@ class AnalyserView(language: String) extends GridPane
     leftBox.getChildren.add(backButton)
     analyserButtons.foreach(leftBox.getChildren.add(_))
     languageButtons.foreach(topBox.getChildren.add(_))
+    topBox.getChildren.add(sortButton)
 
     //add boxes
     add(leftBox, 0, 0, 1, 20)

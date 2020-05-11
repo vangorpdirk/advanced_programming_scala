@@ -33,7 +33,7 @@
 }
 
 .chart-plot-background {
-    -fx-background-color:rgba(217, 245, 255, 0.9);
+    -fx-background-color: rgba(217, 245, 255, 0.9);
 }
 
 .axis-label {
@@ -42,3 +42,36 @@
     -fx-font-size: 32px;
 }
 
+#languagebutton {
+    -fx-background-color: #ff995e,
+    linear-gradient(#f75c02 0%, #1f2429 20%, #ff995e 100%),
+    linear-gradient(#f75c02, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(255, 153, 94, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 5, 4, 3, 5;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.9), 1, 0.0, 0, 1);
+    -fx-font-family: Calibri;
+    -fx-font-size: 32px;
+}
+
+#sortbutton {
+    -fx-background-color: #00e357,
+    linear-gradient(#28b55e 0%, #1f2429 20%, #00e357 100%),
+    linear-gradient(#28b55e, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(0, 227, 87, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 5, 4, 3, 5;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.9), 1, 0.0, 0, 1);
+    -fx-font-family: Calibri;
+    -fx-font-size: 32px;
+}
+
+#sortbutton:hover {
+    -fx-text-fill: #000000;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0), 5, 0.0, 0, 1);
+}
+
+#languagebutton:hover {
+    -fx-text-fill: #000000;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1.0), 5, 0.0, 0, 1);
+}

@@ -5,10 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 905_update: check mail herwig --> sortButton + maybe change setup and use function as parameter
- *
- * TODO: check grid
- * TODO: sortButton + maybe change setup and use function as parameter
+ * log 1105_update: --> sortButton + maybe change setup and use function as parameter
  */
 
 object Main

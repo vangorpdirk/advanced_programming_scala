@@ -5,7 +5,7 @@ import utilities.{IOManager, NgramManager}
 import scala.util.matching.Regex
 
 /**
- * TODO: Skipgrams, zie ook NgramManager - nog niet opgelost
+ * TODO: Skipgrams: controle eventueel via regex "to match any char use ."
  */
 
 class AnalyserModel
@@ -82,14 +82,11 @@ class AnalyserModel
       }
   }
 
-  //  def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Int)] =
-  //  {
-  //    var locallist: List[(String, Int)] = List()
-  //    skipgrams.foreach(skipgram =>
-  //    {
-  //      locallist = locallist :+ ((skipgram, nGramMgr.count(ioMgr.getLetters(language).toString(),skipgram)))
-  //    })
-  //
-  //    locallist.sortWith(_._2 > _._2).take(25)
-  //  }
+  def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Int)] =
+  {
+    for (skipgram <- skipgrams) yield
+      {
+        (skipgram, ioMgr.getWordsFromFile(language).count(_.contains(skipgram)))
+      }
+  }
 }

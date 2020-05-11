@@ -8,7 +8,9 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: skipgrams ???
+ * TODO: skipgrams--> implementation still incorrect - work with regex?
+ * TODO: integrate function as parameter (problem with mismatch)
+ * TODO: match popular skipgrams with matching bigrams (first get skipgrams to work)
  *
  * TODO: (GEEN VRAAG VOOR HERWIG) when ready, replace test_dutch with actual languageMgr.setLanguage(languageString)
  */
@@ -37,7 +39,8 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "ending bigrams" => setPopularEndingBigrams(analyserView.languageString)
       case "popular bigrams" => setMostPopularBigrams(analyserView.languageString)
       case "popular trigrams" => setMostPopularTrigrams(analyserView.languageString)
-      //      case "popular skipgrams" => "whoopsie, not implemented yet"
+      case "popular skipgrams" => setMostPopularSkipgrams(analyserView.languageString)
+      case "skipvsbigram" => skipVsBigram(analyserView.languageString)
     }
   }))
 
@@ -47,7 +50,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
 
     anotherButtonChoice match
     {
-      //        case "sort" => setStartingLetterSort(analyserView.languageString)
+      //              case "sort" => setStartingLetterSort(analyserView.languageString)
       case "dutch" => changeLanguage("dutch")
       case "english" => changeLanguage("english")
       case "finnish" => changeLanguage("finnish")
@@ -73,11 +76,10 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(analyserModel.getStartingLetterResult("resources/languagetxtfiles/test_dutch.txt", languageMgr.setAlphabet(languageString)).toList))
   }
 
-  //  def setWordsStartingWith(getStartingLetter: () => List[(Char,Double)]): Unit =
+  //  def setWordsStartingWith(getStartingLetter: () => IndexedSeq[(Char, Double)]): Unit =
   //  {
   //    analyserView.graphicBox.getChildren.clear()
-  //    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(getStartingLetter())
-  //    )
+  //    analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(getStartingLetter().toList))
   //  }
 
   //    def setStartingLetterSort(languageString: String): Unit =
@@ -146,22 +148,37 @@ class AnalyserPresenter(analyserView: AnalyserView)
   {
     analyserView.graphicBox.getChildren.clear()
     analyserView
-      .graphicBox
-      .getChildren
+      .graphicBox.getChildren
       .add(new ChartView().setBarChartWithInt(
         analyserModel.getMostPopularTrigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toTrigrams(languageMgr.setAlphabet(languageString)).flatten.toList.flatten).sortWith(_._2 > _._2).take(25)))
   }
 
-  //    def setMostPopularSkipgrams(languageString: String): Unit =
-  //    {
-  //      analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithTuplesString(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipGrams(languageMgr.setAlphabet(languageString)))))
-  //      analyserView.add(analyserView.graphicBox, 1, 0, 1, 10)
-  //    }
+  def setMostPopularSkipgrams(languageString: String): Unit =
+  {
+    analyserView.graphicBox.getChildren.clear()
+    analyserView
+      .graphicBox.getChildren
+      .add(new ChartView().setBarChartWithInt(
+        analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
+    println(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten))
+  }
+
+  def skipVsBigram(languageString: String): Unit =
+  {
+    analyserView.graphicBox.getChildren.clear()
+    analyserView
+      .graphicBox.getChildren
+      .add(new ChartView().setBarChartWithInt(
+        analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
+    analyserView
+      .graphicBox.getChildren
+      .add(new ChartView().setBarChartWithInt(
+        analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
+  }
 
   //backbutton
   analyserView.backButton.setOnAction(_ =>
   {
-    logger.info(analyserView.backButton.getText)
     val mainMenu = new MainMenuView
     val mainPresenter = new MainMenuPresenter(mainMenu)
     analyserView.getScene.setRoot(mainMenu)
