@@ -8,9 +8,8 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: skipgrams--> implementation still incorrect - work with regex?
  * TODO: integrate function as parameter (problem with mismatch)
- * TODO: match popular skipgrams with matching bigrams (first get skipgrams to work)
+ * TODO: match popular skipgrams with matching bigrams???
  *
  * TODO: (GEEN VRAAG VOOR HERWIG) when ready, replace test_dutch with actual languageMgr.setLanguage(languageString)
  */
@@ -159,8 +158,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView
       .graphicBox.getChildren
       .add(new ChartView().setBarChartWithInt(
-        analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
-    println(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten))
+        analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten).sortWith(_._2 > _._2).take(25)))
   }
 
   def skipVsBigram(languageString: String): Unit =

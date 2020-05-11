@@ -22,6 +22,6 @@ class NgramManager
   {
     for (c <- str) yield
       for (c2 <- str) yield
-        c.toString + "_" + c2
+        c.toString + "." + c2
   }
 }
