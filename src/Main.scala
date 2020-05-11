@@ -5,7 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1105_update: --> sortButton + maybe change setup and use function as parameter
+ * log 1105_update_3
  */
 
 object Main
@@ -21,7 +21,7 @@ class Main extends Application
   override def start(primaryStage: Stage): Unit =
   {
     val mainMenu = new MainMenuView()
-    val mainPresenter = new MainMenuPresenter(mainMenu)
+    new MainMenuPresenter(mainMenu)
     val scene: Scene = new Scene(mainMenu)
 
     scene.getStylesheets.add(getClass.getResource("/css/style.css").toString)
@@ -29,6 +29,6 @@ class Main extends Application
     primaryStage.setTitle("NGram Analyser")
     primaryStage.setMaximized(true)
     primaryStage.setScene(scene)
-    primaryStage.show
+    primaryStage.show()
   }
 }

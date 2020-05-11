@@ -6,13 +6,13 @@ import views.{AnalyserView, MainMenuView}
 
 class MainMenuPresenter(mainMenuView: MainMenuView)
 {
-  val logger: Logger = Logger.getLogger(getClass().getName)
+  val logger: Logger = Logger.getLogger(getClass.getName)
 
   mainMenuView.buttonList.foreach(b => b.setOnAction(_ =>
   {
     logger.info(b.getText)
     val analyserView = new AnalyserView(b.getText)
-    val analyserPresenter = new AnalyserPresenter(analyserView)
+    new AnalyserPresenter(analyserView)
     mainMenuView.getScene.setRoot(analyserView)
   }))
 }

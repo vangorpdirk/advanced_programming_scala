@@ -2,12 +2,11 @@ package model
 
 import java.util.logging.Logger
 import utilities.{IOManager, NgramManager}
-import scala.util.matching.Regex
 
 class AnalyserModel
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
-  val wordPattern: Regex = "[a-zA-Z]+".r
+//  val wordPattern: Regex = "[a-zA-Z]+".r
   val ioMgr: IOManager = new IOManager()
   val nGramMgr: NgramManager = new NgramManager()
 
@@ -15,21 +14,18 @@ class AnalyserModel
   {
     for (c <- char) yield
       (c, ioMgr.getWordsFromFile(language).count(_.startsWith(c.toString)).toDouble)
-
   }
 
   def getEndingWithLetterResult(language: String, char: String): IndexedSeq[(Char, Double)] =
   {
     for (c <- char) yield
       (c, ioMgr.getWordsFromFile(language).count(_.endsWith(c.toString)).toDouble)
-
   }
 
   def getTotalFrequencyOfEveryLetter(language: String, char: String): IndexedSeq[(Char, Double)] =
   {
     for (c <- char) yield
       (c, ioMgr.getLetters(language).count(_.equals(c)).toDouble)
-
   }
 
   def getFrequencyVowelsInDouble(language: String, vowel: String): Double =
@@ -56,23 +52,23 @@ class AnalyserModel
 
   }
 
-  def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Int)] =
+  def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
     for (bigram <- bigrams) yield
-      (bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram)))
+      (bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
 
   }
 
-  def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Int)] =
+  def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Double)] =
   {
     for (trigram <- trigrams) yield
-      (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)))
+      (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
 
   }
 
-  def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Int)] =
+  def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Double)] =
   {
     for (skipgram <- skipgrams) yield
-      (skipgram, ioMgr.getWordsFromFile(language).map(skipgram.r.findAllMatchIn(_).length).sum)
+      (skipgram, ioMgr.getWordsFromFile(language).map(skipgram.r.findAllMatchIn(_).length).sum / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
   }
 }

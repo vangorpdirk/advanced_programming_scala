@@ -4,7 +4,7 @@ import java.util.logging.Logger
 
 class AnalyserLog
 {
-  val logger: Logger = Logger.getLogger(getClass().getName)
+  val logger: Logger = Logger.getLogger(getClass.getName)
   val ioMgr: IOManager = new IOManager()
 
   def printInfo(string: String): Unit =

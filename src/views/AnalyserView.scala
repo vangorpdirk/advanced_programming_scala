@@ -47,6 +47,15 @@ class AnalyserView(language: String) extends GridPane
     add(topBox, 1, 0, 1, 1)
     add(graphicBox, 1, 1, 1, 18)
 
+    //for testing purpose
+    topBox.setId("topbox")
+    leftBox.setId("lefbox")
+    graphicBox.setId("graphicbox")
+
+    topBox.setAlignment(Pos.CENTER)
+    leftBox.setAlignment(Pos.CENTER)
+    graphicBox.setAlignment(Pos.CENTER)
+
     setVgap(10)
     setHgap(10)
     setPadding(new Insets(15))
