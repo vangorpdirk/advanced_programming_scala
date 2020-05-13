@@ -7,6 +7,8 @@ import javafx.scene.control.Button
 import javafx.scene.layout.{GridPane, HBox, VBox}
 
 /**
+ * TODO: Herwig, waar vind ik goede tutorials voor de inrichting van een grid?
+ *
  * @param language
  */
 

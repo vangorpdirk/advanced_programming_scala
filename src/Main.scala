@@ -5,8 +5,7 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1305_update_1
- * Herwig, check TODO: graag oplossing voor skipVsBigram... Of toch hoe ik data moet uitsplitsen.
+ * log 1305_update_2
  */
 
 object Main
