@@ -53,6 +53,32 @@ class ChartView
     barchart
   }
 
+  //TODO: Dit werkt niet, maar waarom niet???
+  //  def setBarChartTwoDataSeries(ngramList: List[Any]): BarChart[String, Number] =
+  //  {
+  //    xAxis.setLabel("nGram")
+  //    yAxis.setLabel("Frequency")
+  //    barchart.setPrefSize(1500, 2500)
+  //    barchart.setBarGap(0)
+  //    barchart.setCategoryGap(1.0)
+  //
+  //    val dataseries: XYChart.Series[String, Number] = new XYChart.Series()
+  //    val dataseries2: XYChart.Series[String, Number] = new XYChart.Series()
+  //
+  //    for ((a, b) <- ngramList)
+  //    {
+  //      val bigramSkipgramString = a._1.toString + b._1
+  //      dataseries.getData.add(new XYChart.Data(bigramSkipgramString, a._2))
+  //      dataseries2.getData.add(new XYChart.Data(bigramSkipgramString, b._2))
+  //    }
+  //
+  //    barchart.getData.add(dataseries)
+  //    barchart.getData.add(dataseries2)
+  //    barchart.setLegendVisible(false)
+  //
+  //    barchart
+  //  }
+
   def setPieChart(input: Double): PieChart =
   {
     val pieData = FXCollections.observableArrayList(

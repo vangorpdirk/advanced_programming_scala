@@ -8,9 +8,9 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: vowels/consonants???
- * TODO: match popular skipgrams with matching bigrams???
+ * TODO: Herwig, wat doe ik fout in de skipVsBigram???
  *
+ * TODO: vowels/consonants??? nog aan te werken
  * TODO: (GEEN VRAAG VOOR HERWIG) when ready, replace test_dutch with actual languageMgr.setLanguage(languageString)
  */
 class AnalyserPresenter(analyserView: AnalyserView)
@@ -35,7 +35,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
       case "popular bigrams" => setNgramList(analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(analyserView.languageString)).toList.flatten).sortWith(_._2 > _._2).take(25))
       case "popular trigrams" => setNgramList(analyserModel.getMostPopularTrigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toTrigrams(languageMgr.setAlphabet(analyserView.languageString)).flatten.toList.flatten).sortWith(_._2 > _._2).take(25))
       case "popular skipgrams" => setNgramList(analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(analyserView.languageString)).toList.flatten).sortWith(_._2 > _._2).take(25))
-      case "skipvsbigram" => skipVsBigram(analyserView.languageString)
+      case "skipvsbigram" => skipVsBigram("resources/languagetxtfiles/test_dutch.txt")
     }
   }))
 
@@ -93,18 +93,19 @@ class AnalyserPresenter(analyserView: AnalyserView)
     })
   }
 
-  //NOG AAN TE WERKEN
+  //TODO: Ik wil graag setBarChartTwoDataSeries, maar dat lukt niet. Is mijn compareBigramWithSkipgram misschien niet helemaal juist?
   def skipVsBigram(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
-    analyserView
-      .graphicBox.getChildren
-      .add(new ChartView().setBarChartWithString(
-        analyserModel.getMostPopularSkipgrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toSkipgrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
-    analyserView
-      .graphicBox.getChildren
-      .add(new ChartView().setBarChartWithString(
-        analyserModel.getMostPopularBigrams("resources/languagetxtfiles/test_dutch.txt", ngramMgr.toBigrams(languageMgr.setAlphabet(languageString)).toList.flatten)))
+    //    analyserView
+    //      .graphicBox.getChildren
+    //      .add(new ChartView().setBarChartWithString(
+    //        analyserModel.getMostPopularSkipgrams(languageString, ngramMgr.toSkipgrams("abcdefghijklmnopqrstuvwxyz").toList.flatten)))
+    //TODO: for testing purposes, remove when fully integrated
+    println(analyserModel.compareBigramWithSkipGram(
+      analyserModel.getMostPopularBigrams(languageString, ngramMgr.toBigrams("abcdefghijklmnopqrstuvwxyz").toList.flatten),
+      analyserModel.getMostPopularSkipgrams(languageString, ngramMgr.toSkipgrams("abcdefghijklmnopqrstuvwxyz").toList.flatten))
+      .flatten.filter(_ != ()))
   }
 
   //backbutton

@@ -7,7 +7,6 @@ class NgramManager
     for (c <- str) yield
       for (c2 <- str) yield
         c.toString + c2
-
   }
 
   def toTrigrams(str: String): IndexedSeq[IndexedSeq[IndexedSeq[String]]] =
