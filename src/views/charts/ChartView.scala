@@ -4,15 +4,11 @@ import java.util.logging.Logger
 import javafx.collections.FXCollections
 import javafx.scene.chart.{BarChart, CategoryAxis, NumberAxis, PieChart, XYChart}
 
-/**
- * TODO: dubbele code verwijderen
- */
-
 class ChartView
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
   val xAxis = new CategoryAxis
-  val yAxis = new NumberAxis()
+  val yAxis = new NumberAxis
   val barchart: BarChart[String, Number] = new BarChart[String, Number](xAxis, yAxis)
 
   def setBarChart(alphabetList: List[(Char, Double)]): BarChart[String, Number] =
@@ -29,7 +25,6 @@ class ChartView
     {
       dataseries.getData.add(new XYChart.Data(a.toString, b))
     }
-
     barchart.getData.add(dataseries)
     barchart.setLegendVisible(false)
 
@@ -95,5 +90,14 @@ class ChartView
     pie.setPrefSize(800, 600)
 
     pie
+  }
+
+  def setBlancoBarChart(): BarChart[String, Number] =
+  {
+    barchart.setPrefSize(1500, 2500)
+    barchart.setBarGap(0)
+    barchart.setCategoryGap(1.0)
+    barchart.setLegendVisible(false)
+    barchart
   }
 }

@@ -6,7 +6,6 @@ import utilities.{IOManager, NgramManager}
 class AnalyserModel
 {
   val logger: Logger = Logger.getLogger(getClass.getName)
-  //  val wordPattern: Regex = "[a-zA-Z]+".r
   val ioMgr: IOManager = new IOManager()
   val nGramMgr: NgramManager = new NgramManager()
 
@@ -30,13 +29,9 @@ class AnalyserModel
 
   def getFrequencyVowelsInDouble(language: String, vowel: String): Double =
   {
-    var perc: Double = 0.0
-    vowel.foreach(vowel =>
-    {
-      perc += ioMgr.getLetters(language).count(_.equals(vowel)).toDouble
-    })
+    val seqOfVowels = for (v <- vowel) yield ioMgr.getLetters(language).count(_.equals(v)).toDouble
 
-    (perc / ioMgr.getLetters(language).length.toDouble) * 1000
+    seqOfVowels.sum / ioMgr.getLetters(language).length.toDouble * 100
   }
 
   def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =

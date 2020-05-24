@@ -5,7 +5,11 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 1305_update_2
+ * log 2405_update
+ *
+ * 1. AnalyserModel: changed method for vowels/consonants --> for-yield
+ * 2. /resources/css/style.css: bigger font-size for ticks and different color for pie charts
+ * 3. AnalyserView: added bottombox with flag + blanco chart
  */
 
 object Main

@@ -48,7 +48,7 @@ class LanguageManager
       case "alphabetfinnish" => "aeiouäö"
       case "alphabetenglish" => "aeiou"
       case "alphabetgerman" => "aeiouäöü"
-      case "alphabetportuguese" => "aeiou"
+      case "alphabetportugese" => "aeiou"
       case "alphabetitalian" => "aeiou"
       case "alphabetspanish" => "aeiou"
     }

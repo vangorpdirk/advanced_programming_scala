@@ -8,7 +8,6 @@ import views.charts.ChartView
 import views.{AnalyserView, MainMenuView}
 
 /**
- * TODO: vowels/consonants??? nog aan te werken
  * TODO: (GEEN VRAAG VOOR HERWIG) when ready, replace test_dutch with actual languageMgr.setLanguage(languageString)
  */
 class AnalyserPresenter(analyserView: AnalyserView)
@@ -54,9 +53,9 @@ class AnalyserPresenter(analyserView: AnalyserView)
     }
   }))
 
-  def changeLanguage(changeLanguage: String): Unit =
+  def changeLanguage(differentLanguage: String): Unit =
   {
-    val newView = new AnalyserView(changeLanguage)
+    val newView = new AnalyserView(differentLanguage)
     new AnalyserPresenter(newView)
     analyserView.getScene.setRoot(newView)
   }
@@ -65,6 +64,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
   {
     analyserView.graphicBox.getChildren.clear()
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(getFunction.toList))
+
     analyserView.sortButton.setOnAction(_ =>
     {
       setLetterList(getFunction.sortWith(_._2 > _._2))
@@ -74,6 +74,7 @@ class AnalyserPresenter(analyserView: AnalyserView)
   def setVowelChart(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
+    analyserView.sortButton.cancelButtonProperty()
     analyserView
       .graphicBox
       .getChildren
@@ -94,17 +95,13 @@ class AnalyserPresenter(analyserView: AnalyserView)
   def skipVsBigram(languageString: String): Unit =
   {
     analyserView.graphicBox.getChildren.clear()
+    analyserView.sortButton.cancelButtonProperty()
     analyserView
       .graphicBox.getChildren
       .add(new ChartView().setBarChartTwoDataSeries(analyserModel.compareBigramWithSkipGram(
         analyserModel.getMostPopularBigrams(languageString, ngramMgr.toBigrams("abcdefghijklmnopqrstuvwxyz").toList.flatten),
         analyserModel.getMostPopularSkipgrams(languageString, ngramMgr.toSkipgrams("abcdefghijklmnopqrstuvwxyz").toList.flatten))
         .flatten.filter(_ != ())))
-    //TODO: for testing purposes, remove when fully integrated
-    println(analyserModel.compareBigramWithSkipGram(
-      analyserModel.getMostPopularBigrams(languageString, ngramMgr.toBigrams("abcdefghijklmnopqrstuvwxyz").toList.flatten),
-      analyserModel.getMostPopularSkipgrams(languageString, ngramMgr.toSkipgrams("abcdefghijklmnopqrstuvwxyz").toList.flatten))
-      .flatten.filter(_ != ()))
   }
 
   //backbutton
