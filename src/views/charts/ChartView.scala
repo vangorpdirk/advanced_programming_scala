@@ -65,7 +65,7 @@ class ChartView
 
     for (((a, b), (x, y)) <- ngramList)
     {
-      val bigramSkipgramString = a.toString + "//" + x
+      val bigramSkipgramString = a.toString + " / " + x
       dataseries.getData.add(new XYChart.Data(bigramSkipgramString, b.toString.toDouble))
       dataseries2.getData.add(new XYChart.Data(bigramSkipgramString, y.toString.toDouble))
     }

@@ -51,12 +51,6 @@ class AnalyserView(language: String) extends GridPane
     topBox.getChildren.add(sortButton)
     graphicBox.getChildren.add(chartView.setBlancoBarChart())
 
-    //flag of country where language is spoken
-    val flagImage = new ImageView(new Image("/images/" + languageString + "_flag.png"))
-    flagImage.setFitHeight(75)
-    flagImage.setFitWidth(100)
-    bottomBox.getChildren.add(flagImage)
-
     //add boxes
     add(leftBox, 0, 0, 1, 10)
     add(topBox, 1, 0, 1, 1)
@@ -82,4 +76,15 @@ class AnalyserView(language: String) extends GridPane
   setPrefSize(800, 600)
   setButtons()
   setPage()
+  setFlag(languageString)
+
+  def setFlag(countryFlag: String): Unit =
+  {
+    bottomBox.getChildren.clear()
+    //flag of country where language is spoken
+    val flagImage = new ImageView(new Image("/images/" + countryFlag + "_flag.png"))
+    flagImage.setFitHeight(75)
+    flagImage.setFitWidth(100)
+    bottomBox.getChildren.add(flagImage)
+  }
 }

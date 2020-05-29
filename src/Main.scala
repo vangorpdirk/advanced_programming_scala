@@ -10,6 +10,13 @@ import views.MainMenuView
  * 1. AnalyserModel: changed method for vowels/consonants --> for-yield
  * 2. /resources/css/style.css: bigger font-size for ticks and different color for pie charts
  * 3. AnalyserView: added bottombox with flag + blanco chart
+ *
+ * log 2905_update
+ *
+ * 1. sortbutton with counter --> voorlopig nog var
+ * 2. trigrams slower???
+ * 3. skipVsBigram space/space = OK
+ * 4. same analysis of different language
  */
 
 object Main
