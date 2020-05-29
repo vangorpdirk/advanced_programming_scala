@@ -17,7 +17,6 @@ class AnalyserPresenter(analyserView: AnalyserView)
   val ngramMgr = new NgramManager()
   val languageMgr = new LanguageManager()
 
-  //var zou ook in object counter kunnen en dan in de methode val total = counter
   var buttonCounter = 0
   var lastAnalysis = new String
 
@@ -122,11 +121,9 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView.getScene.setRoot(mainMenu)
   })
 
-
-  //  def counter(n: Int): (Int, Int) =
+  //maybe for immutable buttoncounter
+  //  def counter(originalList: List[Int]): List[Int] =
   //  {
-  //    val number1 = n
-  //    val number2 = n + 1
-  //    (number1, number2)
+  //    originalList :+ (originalList.last + 1)
   //  }
 }
