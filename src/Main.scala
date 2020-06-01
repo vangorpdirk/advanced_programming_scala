@@ -14,9 +14,11 @@ import views.MainMenuView
  * log 2905_update
  *
  * 1. sortbutton with counter --> voorlopig nog var
- * 2. trigrams slower???
+ * 2. trigrams slower --> not slower, but flatten, list and flatten again to get out all values
  * 3. skipVsBigram space/space = OK
  * 4. same analysis of different language
+ *
+ * log 106_update
  */
 
 object Main

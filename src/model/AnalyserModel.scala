@@ -37,32 +37,33 @@ class AnalyserModel
   def getPopularStartingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
     for (bigram <- bigrams) yield
-      (bigram, (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000)
+      (bigram, (ioMgr.getWordsFromFile(language).count(_.startsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100)
   }
 
   def getPopularEndingBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
     for (bigram <- bigrams) yield
-      (bigram, (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 1000)
+      (bigram, (ioMgr.getWordsFromFile(language).count(_.endsWith(bigram)).toDouble / ioMgr.getWordsFromFile(language).length.toDouble) * 100)
 
   }
 
   def getMostPopularBigrams(language: String, bigrams: List[String]): List[(String, Double)] =
   {
     for (bigram <- bigrams) yield
-      (bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
+      (bigram, ioMgr.getWordsFromFile(language).count(_.contains(bigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 100)
   }
 
+  //deze zou wegkunnen en dan de methode getMostPopularNgram maken ofzo in principe dubbel met bigram
   def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Double)] =
   {
     for (trigram <- trigrams) yield
-      (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
+      (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 100)
   }
 
   def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Double)] =
   {
     for (skipgram <- skipgrams) yield
-      (skipgram, ioMgr.getWordsFromFile(language).map(skipgram.r.findAllMatchIn(_).length).sum / ioMgr.getWordsFromFile(language).length.toDouble * 1000)
+      (skipgram, ioMgr.getWordsFromFile(language).map(skipgram.r.findAllMatchIn(_).length).sum / ioMgr.getWordsFromFile(language).length.toDouble * 100)
   }
 
   def compareBigramWithSkipGram(bigrams: List[(String, Double)], skipgrams: List[(String, Double)]): List[List[Any]] =

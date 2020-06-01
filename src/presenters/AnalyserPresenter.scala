@@ -12,12 +12,12 @@ import views.{AnalyserView, MainMenuView}
  */
 class AnalyserPresenter(analyserView: AnalyserView)
 {
-  val logger: Logger = Logger.getLogger(getClass.getName)
   val analyserModel = new AnalyserModel()
   val ngramMgr = new NgramManager()
   val languageMgr = new LanguageManager()
 
-  var buttonCounter = 0
+  //vars
+  var buttonCounter: Int = 0
   var lastAnalysis = new String
 
   analyserView.analyserButtons.foreach(b => b.setOnAction(_ =>
@@ -122,8 +122,8 @@ class AnalyserPresenter(analyserView: AnalyserView)
   })
 
   //maybe for immutable buttoncounter
-  //  def counter(originalList: List[Int]): List[Int] =
-  //  {
-  //    originalList :+ (originalList.last + 1)
-  //  }
+//    def counter(originalList: List[Int]): List[Int] =
+//    {
+//      originalList :+ (originalList.last + 1)
+//    }
 }
