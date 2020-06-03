@@ -17,7 +17,6 @@ class AnalyserPresenter(analyserView: AnalyserView)
   val languageMgr = new LanguageManager()
 
   //vars
-  var buttonCounter: Int = 0
   var lastAnalysis = new String
 
   analyserView.analyserButtons.foreach(b => b.setOnAction(_ =>
@@ -64,13 +63,15 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChart(getFunction.toList))
     analyserView.sortButton.setOnAction(_ =>
     {
-      buttonCounter += 1
-      if (buttonCounter % 2 == 0)
+      if (analyserView.sortButton.getText.equals("SORT >"))
       {
         setLetterList(getFunction.sortWith(_._2 > _._2))
-      } else
+        analyserView.sortButton.setText("SORT <")
+      }
+      else
       {
         setLetterList(getFunction.sortWith(_._2 < _._2))
+        analyserView.sortButton.setText("SORT >")
       }
     })
   }
@@ -91,13 +92,15 @@ class AnalyserPresenter(analyserView: AnalyserView)
     analyserView.graphicBox.getChildren.add(new ChartView().setBarChartWithString(getFunction))
     analyserView.sortButton.setOnAction(_ =>
     {
-      buttonCounter += 1
-      if (buttonCounter % 2 == 0)
+      if (analyserView.sortButton.getText.equals("SORT >"))
       {
         setNgramList(getFunction.sortWith(_._2 > _._2))
-      } else
+        analyserView.sortButton.setText("SORT <")
+      }
+      else
       {
         setNgramList(getFunction.sortWith(_._2 < _._2))
+        analyserView.sortButton.setText("SORT >")
       }
     })
   }
@@ -120,10 +123,4 @@ class AnalyserPresenter(analyserView: AnalyserView)
     new MainMenuPresenter(mainMenu)
     analyserView.getScene.setRoot(mainMenu)
   })
-
-  //maybe for immutable buttoncounter
-//    def counter(originalList: List[Int]): List[Int] =
-//    {
-//      originalList :+ (originalList.last + 1)
-//    }
 }

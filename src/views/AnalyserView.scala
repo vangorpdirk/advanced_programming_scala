@@ -24,7 +24,7 @@ class AnalyserView(language: String) extends GridPane
   val languageButtons: List[Button] = List(new Button("Dutch"), new Button("English"),
     new Button("Finnish"), new Button("German"), new Button("Italian"),
     new Button("Danish"), new Button("Portugese"), new Button("Spanish"))
-  val sortButton = new Button("SORT")
+  val sortButton = new Button("SORT >")
 
   //layout
   val leftBox: VBox = new VBox(10)
