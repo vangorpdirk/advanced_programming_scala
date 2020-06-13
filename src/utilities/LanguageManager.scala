@@ -4,9 +4,7 @@ class LanguageManager
 {
   def setLanguage(languageString: String): String =
   {
-    val language = languageString
-
-    language match
+    languageString match
     {
       case "dutch" => "resources/languagetxtfiles/Alldata Dutch.txt"
       case "danish" => "resources/languagetxtfiles/Alldata Danish.txt"
@@ -19,38 +17,35 @@ class LanguageManager
     }
   }
 
+  //all letters of alphabet
   def setAlphabet(languageString: String): String =
   {
-    val alphabet = "alphabet" + languageString
-
-    alphabet match
+    languageString match
     {
-      case "alphabetdutch" => "abcdefghijklmnopqrstuvwxyz"
-      case "alphabetdanish" => "abcdefghijklmnopqrstuvwxyzæåø"
-      case "alphabetfinnish" => "abcdefghijklmnopqrstuvwxyzäö"
-      case "alphabetenglish" => "abcdefghijklmnopqrstuvwxyz"
-      case "alphabetgerman" => "abcdefghijklmnopqrstuvwxyzäöüß"
-      case "alphabetportugese" => "abcdefghijklmnopqrstuvwxyz"
-      case "alphabetitalian" => "abcdefghilmnopqrstuvz"
-      case "alphabetspanish" => "abcdefghijklmnñopqrstuvwxyz"
+      case "dutch" => "abcdefghijklmnopqrstuvwxyz"
+      case "danish" => "abcdefghijklmnopqrstuvwxyzæåø"
+      case "finnish" => "abcdefghijklmnopqrstuvwxyzäö"
+      case "english" => "abcdefghijklmnopqrstuvwxyz"
+      case "german" => "abcdefghijklmnopqrstuvwxyzäöüß"
+      case "portugese" => "abcdefghijklmnopqrstuvwxyz"
+      case "italian" => "abcdefghilmnopqrstuvz"
+      case "spanish" => "abcdefghijklmnñopqrstuvwxyz"
     }
   }
 
   //vowels
   def setVowels(languageString: String): String =
   {
-    val alphabet = "alphabet" + languageString
-
-    alphabet match
+    languageString match
     {
-      case "alphabetdutch" => "aeuio"
-      case "alphabetdanish" => "aeiouæåø"
-      case "alphabetfinnish" => "aeiouäö"
-      case "alphabetenglish" => "aeiou"
-      case "alphabetgerman" => "aeiouäöü"
-      case "alphabetportugese" => "aeiou"
-      case "alphabetitalian" => "aeiou"
-      case "alphabetspanish" => "aeiou"
+      case "dutch" => "aeuio"
+      case "danish" => "aeiouæåø"
+      case "finnish" => "aeiouäö"
+      case "english" => "aeiou"
+      case "german" => "aeiouäöü"
+      case "portugese" => "aeiou"
+      case "italian" => "aeiou"
+      case "spanish" => "aeiou"
     }
   }
 }

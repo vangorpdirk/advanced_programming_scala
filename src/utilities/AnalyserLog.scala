@@ -2,6 +2,11 @@ package utilities
 
 import java.util.logging.Logger
 
+/**
+ * Bij het opbouwen is deze klasse regelmatig gebruikt, maar naar het einde toe werd ze niet meer gebruikt.
+ * Uiteraard blijft het interessant om alles te loggen in een bepaald formaat. Dus heb ik ze laten staan.
+ */
+
 class AnalyserLog
 {
   val logger: Logger = Logger.getLogger(getClass.getName)

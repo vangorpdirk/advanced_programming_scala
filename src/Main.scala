@@ -5,24 +5,15 @@ import presenters.MainMenuPresenter
 import views.MainMenuView
 
 /**
- * log 2405_update
+ * Dit is mijn taalanalyse-app. De opdracht was zeer interessant en Scala is absoluut de moeite om te kennen. Ik heb hier
+ * en daar wat commentaar boven de klassen geschreven zodat u het wat kan volgen. Verder heb ik geprobeerd om zoveel mogelijk
+ * functional te programmeren. Ook voor de structuur van mijn klassen heb ik geprobeerd kort en bondig te zijn.
  *
- * 1. AnalyserModel: changed method for vowels/consonants --> for-yield
- * 2. /resources/css/style.css: bigger font-size for ticks and different color for pie charts
- * 3. AnalyserView: added bottombox with flag + blanco chart
+ * Veel verbeterplezier!
  *
- * log 2905_update
- *
- * 1. sortbutton with counter
- * 2. trigrams slower --> not slower, but flatten, list and flatten again to get out all values
- * 3. skipVsBigram space/space = OK
- * 4. same analysis of different language
- *
- * log 106_update
- *
- * log 306_update
- *
- * 1. sortbutton fixed -> maybe later write function
+ * @author Dirk Van Gorp
+ *         dirk.vangorp@student.kdg.be
+ * @version 1.0
  */
 
 object Main

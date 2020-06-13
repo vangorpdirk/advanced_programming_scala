@@ -31,27 +31,6 @@ class ChartView
     barchart
   }
 
-//  def setBarChartWithString(alphabetList: List[(String, Double)]): BarChart[String, Number] =
-//  {
-//    xAxis.setLabel("nGram")
-//    yAxis.setLabel("Frequency")
-//    barchart.setPrefSize(1500, 2500)
-//    barchart.setBarGap(0)
-//    barchart.setCategoryGap(1.0)
-//
-//    val dataseries: XYChart.Series[String, Number] = new XYChart.Series()
-//
-//    for ((a, b) <- alphabetList)
-//    {
-//      dataseries.getData.add(new XYChart.Data(a.toString, b))
-//    }
-//
-//    barchart.getData.add(dataseries)
-//    barchart.setLegendVisible(false)
-//
-//    barchart
-//  }
-
   def setBarChartTwoDataSeries(ngramList: List[Any]): BarChart[String, Number] =
   {
     xAxis.setLabel("nGram")

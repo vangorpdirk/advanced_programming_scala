@@ -1,5 +1,11 @@
 package utilities
 
+/**
+ * In deze klasse zet ik elk alfabet om naar de overeenkomende nGrammen.
+ * bv: abc -> toBigram -> aa ab ac ba bb bc ca cb cc
+ * Dit zijn nog vectoren in vectoren, dus nadien nog flatten en naar een lijst omzetten.
+ */
+
 class NgramManager
 {
   def toBigrams(str: String): IndexedSeq[IndexedSeq[String]] =

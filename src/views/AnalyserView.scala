@@ -17,13 +17,13 @@ class AnalyserView(language: String) extends GridPane
 
   //buttons
   val backButton: Button = new Button("<--")
-  val analyserButtons: List[Button] = List(new Button("Starts with"), new Button("Ends With"), new Button("Letter Frequency"),
-    new Button("Vowels/Consonants"), new Button("Starting Bigrams"), new Button("Ending Bigrams"),
-    new Button("Popular Bigrams"), new Button("Popular Trigrams"), new Button("Popular Skipgrams")
-    , new Button("SkipVsBigram"))
-  val languageButtons: List[Button] = List(new Button("Dutch"), new Button("English"),
-    new Button("Finnish"), new Button("German"), new Button("Italian"),
-    new Button("Danish"), new Button("Portugese"), new Button("Spanish"))
+  val analyserButtons: List[Button] = List(new Button("starts with"), new Button("ends with"), new Button("letter frequency"),
+    new Button("vowelsvsconsonants"), new Button("starting bigrams"), new Button("ending bigrams"),
+    new Button("popular bigrams"), new Button("popular trigrams"), new Button("popular skipgrams")
+    , new Button("skipvsbigram"))
+  val languageButtons: List[Button] = List(new Button("dutch"), new Button("english"),
+    new Button("finnish"), new Button("german"), new Button("italian"),
+    new Button("danish"), new Button("portugese"), new Button("spanish"))
   val sortButton = new Button("SORT >")
 
   //layout

@@ -1,7 +1,15 @@
 package model
 
-import java.util.logging.Logger
 import utilities.{IOManager, NgramManager}
+
+/**
+ * In deze klasse vindt u alle methodes die gebruikt zijn voor de analyses. Ik realiseerde me aan het einde dat ik
+ * best met dezelfde returnvalues werk, dus strings en doubles. Dat maakt het in de presenter makkelijker. Aanvankelijk
+ * gebruikte ik voor de letters chars en doubles.
+ *
+ * voorbeeld van een methode: ik geef een taal mee en een letter(combinatie). De rest is vrij zelfverklarend. Voordeel
+ * van die for-yield is dat hij een vector teruggeeft. Dat werkt uiteraard makkelijk.
+ */
 
 class AnalyserModel
 {
@@ -25,12 +33,6 @@ class AnalyserModel
     for (c <- char) yield
       (c.toString, ioMgr.getLetters(language).count(_.equals(c)).toDouble)
   }
-
-  //  def getTotalFrequencyOfEveryLetter(language: String, char: String): IndexedSeq[(Char, Double)] =
-  //  {
-  //    for (c <- char) yield
-  //      (c, ioMgr.getLetters(language).count(_.equals(c)).toDouble)
-  //  }
 
   def getFrequencyVowelsInDouble(language: String, vowel: String): Double =
   {
@@ -57,13 +59,6 @@ class AnalyserModel
     for (ngram <- ngrams) yield
       (ngram, ioMgr.getWordsFromFile(language).count(_.contains(ngram)) / ioMgr.getWordsFromFile(language).length.toDouble * 100)
   }
-
-  //deze zou wegkunnen en dan de methode getMostPopularNgram maken ofzo in principe dubbel met bigram
-  //  def getMostPopularTrigrams(language: String, trigrams: List[String]): List[(String, Double)] =
-  //  {
-  //    for (trigram <- trigrams) yield
-  //      (trigram, ioMgr.getWordsFromFile(language).count(_.contains(trigram)) / ioMgr.getWordsFromFile(language).length.toDouble * 100)
-  //  }
 
   def getMostPopularSkipgrams(language: String, skipgrams: List[String]): List[(String, Double)] =
   {

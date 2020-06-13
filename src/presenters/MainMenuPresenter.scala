@@ -1,7 +1,5 @@
 package presenters
 
-import java.util.logging.Logger
-
 import views.{AnalyserView, MainMenuView}
 
 class MainMenuPresenter(mainMenuView: MainMenuView)
